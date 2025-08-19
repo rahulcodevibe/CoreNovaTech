@@ -14,6 +14,7 @@ import {
   ArrowRight,
   CheckCircle
 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 import heroImage from "@/assets/hero-image.jpg";
 import projectEcommerce from "@/assets/project-ecommerce.jpg";
@@ -21,6 +22,9 @@ import projectMobileApp from "@/assets/project-mobile-app.jpg";
 import projectCorporate from "@/assets/project-corporate.jpg";
 
 const Index = () => {
+  const { ref: servicesRef, isVisible: servicesVisible } = useScrollAnimation();
+  const { ref: aboutRef, isVisible: aboutVisible } = useScrollAnimation();
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
@@ -68,31 +72,31 @@ const Index = () => {
         </div>
         
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
-          <Badge className="mb-6 bg-accent/20 text-accent-foreground border-accent/30">
+          <Badge className="mb-6 bg-accent/20 text-accent-foreground border-accent/30 animate-bounce-in animate-float">
             🚀 Premium Web & App Development
           </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
             We Build Digital
-            <span className="block text-accent">Experiences</span>
+            <span className="block text-accent animate-fade-in-left" style={{ animationDelay: '0.3s' }}>Experiences</span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
             Transform your ideas into powerful websites and mobile apps that drive results and delight users.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
             <Button 
               onClick={() => scrollToSection('projects')}
               variant="hero" 
               size="lg"
-              className="group"
+              className="group transform hover:scale-105 transition-all duration-300 animate-glow-pulse"
             >
               View Our Work
-              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-all duration-300" />
             </Button>
             <Button 
               onClick={() => scrollToSection('contact')}
               variant="outline" 
               size="lg"
-              className="bg-white/10 border-white/30 text-white hover:bg-white/20"
+              className="bg-white/10 border-white/30 text-white hover:bg-white/20 transform hover:scale-105 transition-all duration-300"
             >
               Get Started
             </Button>
@@ -101,9 +105,9 @@ const Index = () => {
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-24 bg-background">
+      <section id="services" className="py-24 bg-background" ref={servicesRef}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${servicesVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
             <h2 className="text-4xl font-bold mb-4">Our Services</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               We offer comprehensive digital solutions to help your business thrive in the modern world.
@@ -111,83 +115,70 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <Card className="shadow-card hover:shadow-hero transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="bg-gradient-hero p-4 rounded-full w-16 h-16 mx-auto mb-6 group-hover:scale-110 transition-bounce">
-                  <Globe className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Web Development</h3>
-                <p className="text-muted-foreground mb-6">
-                  Custom websites and web applications built with modern technologies for optimal performance and user experience.
-                </p>
-                <ul className="text-left space-y-2">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    Responsive Design
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    SEO Optimized
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    Fast Loading
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-card hover:shadow-hero transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="bg-gradient-hero p-4 rounded-full w-16 h-16 mx-auto mb-6 group-hover:scale-110 transition-bounce">
-                  <Smartphone className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Mobile Apps</h3>
-                <p className="text-muted-foreground mb-6">
-                  Native and cross-platform mobile applications that provide seamless user experiences across all devices.
-                </p>
-                <ul className="text-left space-y-2">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    iOS & Android
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    Cross-platform
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    App Store Ready
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            <Card className="shadow-card hover:shadow-hero transition-smooth group">
-              <CardContent className="p-8 text-center">
-                <div className="bg-gradient-hero p-4 rounded-full w-16 h-16 mx-auto mb-6 group-hover:scale-110 transition-bounce">
-                  <Code2 className="h-8 w-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">Custom Solutions</h3>
-                <p className="text-muted-foreground mb-6">
-                  Tailored digital solutions designed specifically for your business needs and requirements.
-                </p>
-                <ul className="text-left space-y-2">
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    API Integration
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    Database Design
-                  </li>
-                  <li className="flex items-center">
-                    <CheckCircle className="h-4 w-4 text-accent mr-2" />
-                    Cloud Solutions
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+            {[
+              {
+                icon: Globe,
+                title: "Web Development",
+                description: "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
+                features: ["Responsive Design", "SEO Optimized", "Fast Loading"],
+                delay: 0
+              },
+              {
+                icon: Smartphone,
+                title: "Mobile Apps",
+                description: "Native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+                features: ["iOS & Android", "Cross-platform", "App Store Ready"],
+                delay: 200
+              },
+              {
+                icon: Code2,
+                title: "Custom Solutions",
+                description: "Tailored digital solutions designed specifically for your business needs and requirements.",
+                features: ["API Integration", "Database Design", "Cloud Solutions"],
+                delay: 400
+              }
+            ].map((service, index) => (
+              <div
+                key={service.title}
+                className={`transition-all duration-700 ${
+                  servicesVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                }`}
+                style={{ animationDelay: `${service.delay}ms` }}
+              >
+                <Card className="shadow-card hover:shadow-hero transition-all duration-500 group transform hover:scale-105 hover:-translate-y-2">
+                  <CardContent className="p-8 text-center">
+                    <div className="bg-gradient-hero p-4 rounded-full w-16 h-16 mx-auto mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-float">
+                      <service.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-semibold mb-4 group-hover:text-accent transition-all duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="text-muted-foreground mb-6 transition-all duration-300">
+                      {service.description}
+                    </p>
+                    <ul className="text-left space-y-2">
+                      {service.features.map((feature, featureIndex) => (
+                        <li 
+                          key={feature}
+                          className={`flex items-center transition-all duration-300 transform ${
+                            servicesVisible 
+                              ? 'translate-x-0 opacity-100' 
+                              : 'translate-x-4 opacity-0'
+                          }`}
+                          style={{ 
+                            animationDelay: `${service.delay + (featureIndex * 100)}ms`,
+                            transitionDelay: `${service.delay + (featureIndex * 100)}ms`
+                          }}
+                        >
+                          <CheckCircle className="h-4 w-4 text-accent mr-2 animate-scale-in" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -204,16 +195,16 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
+              <ProjectCard key={index} {...project} delay={index * 200} />
             ))}
           </div>
         </div>
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-24 bg-background">
+      <section id="about" className="py-24 bg-background" ref={aboutRef}>
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${aboutVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
             <h2 className="text-4xl font-bold mb-4">Why Choose Us</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               We're passionate about creating digital solutions that make a difference.
@@ -221,35 +212,44 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="bg-accent/10 p-4 rounded-full w-16 h-16 mx-auto mb-6">
-                <Zap className="h-8 w-8 text-accent" />
+            {[
+              {
+                icon: Zap,
+                title: "Fast Delivery",
+                description: "We deliver high-quality projects on time, every time, without compromising on quality.",
+                delay: 0
+              },
+              {
+                icon: Users,
+                title: "Expert Team",
+                description: "Our experienced developers and designers work together to create exceptional digital experiences.",
+                delay: 200
+              },
+              {
+                icon: Trophy,
+                title: "Proven Results",
+                description: "Track record of successful projects and satisfied clients who've achieved their business goals.",
+                delay: 400
+              }
+            ].map((feature, index) => (
+              <div 
+                key={feature.title}
+                className={`text-center transition-all duration-700 group ${
+                  aboutVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                }`}
+                style={{ animationDelay: `${feature.delay}ms` }}
+              >
+                <div className="bg-accent/10 p-4 rounded-full w-16 h-16 mx-auto mb-6 transform group-hover:scale-125 group-hover:rotate-12 transition-all duration-500 animate-float">
+                  <feature.icon className="h-8 w-8 text-accent" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-accent transition-all duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground transition-all duration-300">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl font-semibold mb-3">Fast Delivery</h3>
-              <p className="text-muted-foreground">
-                We deliver high-quality projects on time, every time, without compromising on quality.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-accent/10 p-4 rounded-full w-16 h-16 mx-auto mb-6">
-                <Users className="h-8 w-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Expert Team</h3>
-              <p className="text-muted-foreground">
-                Our experienced developers and designers work together to create exceptional digital experiences.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="bg-accent/10 p-4 rounded-full w-16 h-16 mx-auto mb-6">
-                <Trophy className="h-8 w-8 text-accent" />
-              </div>
-              <h3 className="text-xl font-semibold mb-3">Proven Results</h3>
-              <p className="text-muted-foreground">
-                Track record of successful projects and satisfied clients who've achieved their business goals.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>

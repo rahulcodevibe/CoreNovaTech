@@ -14,40 +14,40 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b animate-fade-in">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="bg-gradient-hero p-2 rounded-lg">
+          <div className="flex items-center space-x-2 group">
+            <div className="bg-gradient-hero p-2 rounded-lg transform group-hover:scale-110 group-hover:rotate-12 transition-all duration-300 animate-glow-pulse">
               <Code2 className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold">WebArtisans</span>
+            <span className="text-xl font-bold group-hover:text-accent transition-all duration-300">WebArtisans</span>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => scrollToSection('home')}
-              className="text-foreground hover:text-accent transition-smooth"
+              className="text-foreground hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
             >
               Home
             </button>
             <button 
               onClick={() => scrollToSection('services')}
-              className="text-foreground hover:text-accent transition-smooth"
+              className="text-foreground hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
             >
               Services
             </button>
             <button 
               onClick={() => scrollToSection('projects')}
-              className="text-foreground hover:text-accent transition-smooth"
+              className="text-foreground hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
             >
               Projects
             </button>
             <button 
               onClick={() => scrollToSection('about')}
-              className="text-foreground hover:text-accent transition-smooth"
+              className="text-foreground hover:text-accent transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-accent after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left"
             >
               About
             </button>
@@ -55,6 +55,7 @@ const Header = () => {
               onClick={() => scrollToSection('contact')}
               variant="hero"
               size="sm"
+              className="transform hover:scale-110 transition-all duration-300 animate-glow-pulse"
             >
               Get Started
             </Button>
