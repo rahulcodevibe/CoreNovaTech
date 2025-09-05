@@ -34,7 +34,7 @@ const ContactForm = () => {
   };
 
   const handleEmail = () => {
-    window.open("mailto:your.agency@email.com", "_blank");
+    window.open("mailto:corenovatech57@gmail.com", "_blank");
   };
 
   return (

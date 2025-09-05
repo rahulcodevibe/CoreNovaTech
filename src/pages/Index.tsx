@@ -58,7 +58,7 @@ const Index = () => {
       image: projectCorporate,
       technologies: ["Next.js", "TypeScript", "Tailwind", "Sanity"],
       category: "Web Development",
-      liveLink: "https://your-corporate-site.com",
+      liveLink: "https://preview--stellar-corp-site.lovable.app/",
     },
   ];
 
