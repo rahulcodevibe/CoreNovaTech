@@ -4,15 +4,15 @@ import ProjectCard from "@/components/ProjectCard";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  Code2, 
-  Smartphone, 
-  Globe, 
-  Zap, 
-  Users, 
+import {
+  Code2,
+  Smartphone,
+  Globe,
+  Zap,
+  Users,
   Trophy,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
 } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
@@ -28,73 +28,94 @@ const Index = () => {
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+      section.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const projects = [
     {
       title: "E-Commerce Platform",
-      description: "Modern online store with advanced features, payment integration, and responsive design for optimal user experience.",
+      description:
+        "Modern online store with advanced features, payment integration, and responsive design for optimal user experience.",
       image: projectEcommerce,
       technologies: ["React", "Node.js", "MongoDB", "Stripe"],
-      category: "Web Development"
+      category: "Web Development",
+      liveLink: "https://preview--chic-select-store.lovable.app/",
     },
     {
       title: "Fitness Tracking App",
-      description: "Mobile application for fitness enthusiasts with workout tracking, progress analytics, and social features.",
+      description:
+        "Mobile application for fitness enthusiasts with workout tracking, progress analytics, and social features.",
       image: projectMobileApp,
       technologies: ["React Native", "Firebase", "Redux", "Chart.js"],
-      category: "Mobile App"
+      category: "Mobile App",
+      liveLink: "https://preview--ignite-track-flow.lovable.app/",
     },
     {
       title: "Corporate Website",
-      description: "Professional business website with modern design, CMS integration, and optimized performance.",
+      description:
+        "Professional business website with modern design, CMS integration, and optimized performance.",
       image: projectCorporate,
       technologies: ["Next.js", "TypeScript", "Tailwind", "Sanity"],
-      category: "Web Development"
-    }
+      category: "Web Development",
+      liveLink: "https://your-corporate-site.com",
+    },
   ];
 
   return (
     <div className="min-h-screen">
       <Header />
-      
+
       {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
         <div className="absolute inset-0">
-          <img 
-            src={heroImage} 
-            alt="Modern development workspace" 
+          <img
+            src={heroImage}
+            alt="Modern development workspace"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/70" />
         </div>
-        
+
         <div className="relative z-10 text-center text-white max-w-4xl mx-auto px-4">
           <Badge className="mb-6 bg-accent/20 text-accent-foreground border-accent/30 animate-bounce-in animate-float">
             🚀 Premium Web & App Development
           </Badge>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight animate-fade-in-up">
             We Build Digital
-            <span className="block text-accent animate-fade-in-left" style={{ animationDelay: '0.3s' }}>Experiences</span>
+            <span
+              className="block text-accent animate-fade-in-left"
+              style={{ animationDelay: "0.3s" }}
+            >
+              Experiences
+            </span>
           </h1>
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-            Transform your ideas into powerful websites and mobile apps that drive results and delight users.
+          <p
+            className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto animate-fade-in-up"
+            style={{ animationDelay: "0.5s" }}
+          >
+            Transform your ideas into powerful websites and mobile apps that
+            drive results and delight users.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up" style={{ animationDelay: '0.7s' }}>
-            <Button 
-              onClick={() => scrollToSection('projects')}
-              variant="hero" 
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up"
+            style={{ animationDelay: "0.7s" }}
+          >
+            <Button
+              onClick={() => scrollToSection("projects")}
+              variant="hero"
               size="lg"
               className="group transform hover:scale-105 transition-all duration-300 animate-glow-pulse"
             >
               View Our Work
               <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-2 transition-all duration-300" />
             </Button>
-            <Button 
-              onClick={() => scrollToSection('contact')}
-              variant="outline" 
+            <Button
+              onClick={() => scrollToSection("contact")}
+              variant="outline"
               size="lg"
               className="bg-white/10 border-white/30 text-white hover:bg-white/20 transform hover:scale-105 transition-all duration-300"
             >
@@ -107,10 +128,17 @@ const Index = () => {
       {/* Services Section */}
       <section id="services" className="py-24 bg-background" ref={servicesRef}>
         <div className="container mx-auto px-4">
-          <div className={`text-center mb-16 transition-all duration-700 ${servicesVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
+          <div
+            className={`text-center mb-16 transition-all duration-700 ${
+              servicesVisible
+                ? "animate-fade-in-up"
+                : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-4xl font-bold mb-4">Our Services</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We offer comprehensive digital solutions to help your business thrive in the modern world.
+              We offer comprehensive digital solutions to help your business
+              thrive in the modern world.
             </p>
           </div>
 
@@ -119,29 +147,38 @@ const Index = () => {
               {
                 icon: Globe,
                 title: "Web Development",
-                description: "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
+                description:
+                  "Custom websites and web applications built with modern technologies for optimal performance and user experience.",
                 features: ["Responsive Design", "SEO Optimized", "Fast Loading"],
-                delay: 0
+                delay: 0,
               },
               {
                 icon: Smartphone,
                 title: "Mobile Apps",
-                description: "Native and cross-platform mobile applications that provide seamless user experiences across all devices.",
+                description:
+                  "Native and cross-platform mobile applications that provide seamless user experiences across all devices.",
                 features: ["iOS & Android", "Cross-platform", "App Store Ready"],
-                delay: 200
+                delay: 200,
               },
               {
                 icon: Code2,
                 title: "Custom Solutions",
-                description: "Tailored digital solutions designed specifically for your business needs and requirements.",
-                features: ["API Integration", "Database Design", "Cloud Solutions"],
-                delay: 400
-              }
-            ].map((service, index) => (
+                description:
+                  "Tailored digital solutions designed specifically for your business needs and requirements.",
+                features: [
+                  "API Integration",
+                  "Database Design",
+                  "Cloud Solutions",
+                ],
+                delay: 400,
+              },
+            ].map((service) => (
               <div
                 key={service.title}
                 className={`transition-all duration-700 ${
-                  servicesVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                  servicesVisible
+                    ? "animate-fade-in-up"
+                    : "opacity-0 translate-y-8"
                 }`}
                 style={{ animationDelay: `${service.delay}ms` }}
               >
@@ -158,16 +195,20 @@ const Index = () => {
                     </p>
                     <ul className="text-left space-y-2">
                       {service.features.map((feature, featureIndex) => (
-                        <li 
+                        <li
                           key={feature}
                           className={`flex items-center transition-all duration-300 transform ${
-                            servicesVisible 
-                              ? 'translate-x-0 opacity-100' 
-                              : 'translate-x-4 opacity-0'
+                            servicesVisible
+                              ? "translate-x-0 opacity-100"
+                              : "translate-x-4 opacity-0"
                           }`}
-                          style={{ 
-                            animationDelay: `${service.delay + (featureIndex * 100)}ms`,
-                            transitionDelay: `${service.delay + (featureIndex * 100)}ms`
+                          style={{
+                            animationDelay: `${
+                              service.delay + featureIndex * 100
+                            }ms`,
+                            transitionDelay: `${
+                              service.delay + featureIndex * 100
+                            }ms`,
                           }}
                         >
                           <CheckCircle className="h-4 w-4 text-accent mr-2 animate-scale-in" />
@@ -183,13 +224,14 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Projects Section */}
+      {/* Projects Section (only once now) */}
       <section id="projects" className="py-24 bg-secondary/50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">Our Recent Work</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Take a look at some of our recent projects and see how we've helped businesses achieve their digital goals.
+              Take a look at some of our recent projects and see how we've
+              helped businesses achieve their digital goals.
             </p>
           </div>
 
@@ -204,10 +246,15 @@ const Index = () => {
       {/* About Section */}
       <section id="about" className="py-24 bg-background" ref={aboutRef}>
         <div className="container mx-auto px-4">
-          <div className={`text-center mb-16 transition-all duration-700 ${aboutVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'}`}>
+          <div
+            className={`text-center mb-16 transition-all duration-700 ${
+              aboutVisible ? "animate-fade-in-up" : "opacity-0 translate-y-8"
+            }`}
+          >
             <h2 className="text-4xl font-bold mb-4">Why Choose Us</h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              We're passionate about creating digital solutions that make a difference.
+              We're passionate about creating digital solutions that make a
+              difference.
             </p>
           </div>
 
@@ -216,26 +263,31 @@ const Index = () => {
               {
                 icon: Zap,
                 title: "Fast Delivery",
-                description: "We deliver high-quality projects on time, every time, without compromising on quality.",
-                delay: 0
+                description:
+                  "We deliver high-quality projects on time, every time, without compromising on quality.",
+                delay: 0,
               },
               {
                 icon: Users,
                 title: "Expert Team",
-                description: "Our experienced developers and designers work together to create exceptional digital experiences.",
-                delay: 200
+                description:
+                  "Our experienced developers and designers work together to create exceptional digital experiences.",
+                delay: 200,
               },
               {
                 icon: Trophy,
                 title: "Proven Results",
-                description: "Track record of successful projects and satisfied clients who've achieved their business goals.",
-                delay: 400
-              }
-            ].map((feature, index) => (
-              <div 
+                description:
+                  "Track record of successful projects and satisfied clients who've achieved their business goals.",
+                delay: 400,
+              },
+            ].map((feature) => (
+              <div
                 key={feature.title}
                 className={`text-center transition-all duration-700 group ${
-                  aboutVisible ? 'animate-fade-in-up' : 'opacity-0 translate-y-8'
+                  aboutVisible
+                    ? "animate-fade-in-up"
+                    : "opacity-0 translate-y-8"
                 }`}
                 style={{ animationDelay: `${feature.delay}ms` }}
               >
@@ -265,13 +317,13 @@ const Index = () => {
               <div className="bg-accent p-2 rounded-lg">
                 <Code2 className="h-6 w-6 text-white" />
               </div>
-              <span className="text-xl font-bold">WebArtisans</span>
+              <span className="text-xl font-bold">CoreNova Tech</span>
             </div>
             <p className="text-white/80 mb-6">
               Crafting digital experiences that inspire and deliver results.
             </p>
             <p className="text-white/60">
-              © 2024 WebArtisans. All rights reserved.
+              © 2024 CoreNova Tech. All rights reserved.
             </p>
           </div>
         </div>
