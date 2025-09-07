@@ -101,7 +101,7 @@ const ContactForm = () => {
                   </div>
                   <div className="flex-1">
                     <h3 className="font-semibold mb-1">Email Us</h3>
-                    <p className="text-muted-foreground mb-3">your.agency@email.com</p>
+                    <p className="text-muted-foreground mb-3">corenovatech57@gmail.com</p>
                     <Button onClick={handleEmail} variant="outline" size="sm">
                       Send Email
                     </Button>
