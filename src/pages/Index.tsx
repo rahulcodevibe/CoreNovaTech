@@ -20,6 +20,7 @@ import heroImage from "@/assets/hero-image.jpg";
 import projectEcommerce from "@/assets/project-ecommerce.jpg";
 import projectMobileApp from "@/assets/project-mobile-app.jpg";
 import projectCorporate from "@/assets/project-corporate.jpg";
+import lastminutelove from "@/assets/lastminute-love.jpg"
 
 const Index = () => {
   const { ref: servicesRef, isVisible: servicesVisible } = useScrollAnimation();
@@ -33,6 +34,15 @@ const Index = () => {
   };
 
   const projects = [
+     {
+      title: "LastminuteLove shop",
+      description:
+        "Modern online store for hand made jwellery, with advanced features, payment integration, and responsive design for optimal user experience.",
+      image: lastminutelove,
+      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      category: "Web Development",
+      liveLink: "https://lastminutelove.in/",
+    },
     {
       title: "E-Commerce Platform",
       description:

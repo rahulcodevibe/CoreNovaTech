@@ -30,7 +30,7 @@ const ContactForm = () => {
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Hi! I'm interested in your web development services.");
-    window.open(`https://wa.me/9508480729?text=${message}`, "_blank");
+    window.open(`https://wa.me/919508480729?text=${message}`, "_blank");
   };
 
   const handleEmail = () => {
